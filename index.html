@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html ng-app="resume">
+  <head>
+    <title>Markus van Duijn - Profiel</title>
+	<base href="" >
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"> 
+	
+	<script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
+    <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="js/rollen.js"></script>
+	<script type="text/javascript" src="js/recoms.js"></script>
+	<script type="text/javascript" src="js/jobs.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="row1"></div>
+      <app-header></app-header>
+      <div class="content">
+		<app-profile></app-profile>
+		<app-opdracht></app-opdracht>
+		<app-aanbeveling></app-aanbeveling>
+      </div>
+      <footer></footer>
+      <div class="row1"></div>
+    </div>
+  </body>
+</html>

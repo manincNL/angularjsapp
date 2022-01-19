@@ -1,0 +1,243 @@
+(function(){
+	var app = angular.module('resume', [ ]);
+
+	app.controller('ProfielController', function(){
+		this.profielen = rollen;
+		this.profInfo = 7;
+		this.selectedProfInfo = function(setProfInfo) {
+			this.profInfo = setProfInfo;
+		};
+		this.isSelectedProfInfo = function(checkProfInfo) {
+			return this.profInfo === checkProfInfo;
+		};
+	});
+  
+	app.controller('OpdrachtController', function(){
+		this.opdrachten = jobs; 
+		this.jobInfo = 300;
+		this.selectedJobInfo = function(setJobInfo) {
+			this.jobInfo = setJobInfo;
+		};
+		this.isSelectedJobInfo = function(checkJobInfo) {
+			return this.jobInfo === checkJobInfo;
+		};
+	});
+  
+	app.directive('appHeaderEn', function() {
+		return {
+			restrict: "E",
+			templateUrl: '/include/app-header-en.html'
+		};
+	});
+
+	app.directive('appProfile', function() {
+		return {
+			restrict: "E",
+			templateUrl: '/include/app-profile.html' 
+		};
+	});
+	
+	app.directive('appOpdracht', function() {
+		return {
+			restrict: "E",
+			templateUrl: '/include/app-opdracht.html'
+		};
+	});
+	
+	var rollen = [
+   {
+      name: "Agile software development",
+	  indexVan: 1,
+      myclass: "agile",
+      description: 'Ik heb een ruime ervaring in met Agile. De laatste 5 jaar ben ik bezig met Agile, Scrum, DevOps en CI/CD. Ik heb rollen gehad als DevOps Engineer, Scrum Master, Product Owner en Agile (CI/CD) Coach. Ik ben een groot fan van de Agile manier van werken. Ik bracht inspiratie alle lagen van organisaties om op deze manier te werken. Tevens liggen XP, Lean en Agile dicht bij mijn eigen manier van werken.',
+	  trainingen: ["Scrum Master", "PSM1", "Agile Project Management", "Product Owner", "DevOps", "Continuous Integrations", "Continuous Delivery", "Scrum", "Coach", "Unit testing", "Code Quality", "Automation", "Jira", "Jenkins"]
+  },
+  {
+      name: "Identity- & Access Management",
+	  indexVan: 2,
+      myclass: "iam",
+      description: "Ik heb een ruime ervaring in het werkveld van Identity en Access management. Ik heb intensief gewerkt met IBM Tivoli Identity Manager en Aveksa (RSA Identity management and Compliancy). Ik heb verschillende rollen vervuld zoals Business Intelligence Expert, Technische Teamleider, Release Coordinator en Dev Engineer. De teams waren verantwoordelijk voor security, workflows en user acces op applicaties op verschillende platformen.",
+	  trainingen: ["DirX identity", "RSA Identity Management and Governance", "User Access", "IBM Tivoli Identity Manager", "Role Based Access Control", "Security", "KPI", "Password Management", "SLA", "Reporting", "Automatic Provisioning"]
+  },
+  {
+      name: "Front End Development",
+	  indexVan: 3,
+      myclass: "fed",
+      description: "Al 11 jaar ben ik bezig met front end development. Opzetten van het Intranet, Front End Development van IAM oplossingen, ontwerpen & onderhouden van corporate websites en het bouwen van meerdere websites. Ik beheers meerdere programmeertalen zoals JavaScript, AngularJS, PHP, Python, VBA en HTML.",
+	  trainingen: ["Javascript", "AngularJS", "HTML", "jQuery", "PHP", "Bootstrap", "CSS", "Python"]
+  },
+  {
+      name: "Bussiness Intelligence ",
+	  indexVan: 4,
+      myclass: "bi",
+      description: "In 2003 ben ik begonnen met BI. Als eerst ontstond de noodzaak om klantrapporten voor een incasso bureau op te zetten. Ik ben begonnen om deze op te zetten vanuit Crystal Report op een Advantage database. Later ben ik overgestapt op Business Objects op Oracle databases. Bij Atos ben ik bestuurder geweest van het BO competence center (een gebruikers group opgezet om medewerkers van de laatste info te voorzien en mee te helpen in bids bij klanten). Ook heb ik junior BI specialisten gecoacht en opgeleid.",
+	  trainingen: ["Crystal Reports", "Business Object", "SAP BW", "Datawarehouse", "ETL", "Coaching", "Reporting", "Data Analyse", "Oracle", "Advantage Database"]
+  },
+  {
+      name: "Applicatie, Techn. & Operat. beheer",
+	  indexVan: 5,
+      myclass: "beheer",
+      description: " . . .",
+	  trainingen: ["ITIL", "BiSL", "ASL", "Change management", "KPI", "SLA", "CMDB", "Service Component Description", "Backup- Restore", "Problem management", "Root Cause Analysis", "Process management", "Incident Management"]
+  },
+  {
+      name: "Coaching en Leiderschap",
+	  indexVan: 6,
+      myclass: "cl",
+      description: "Leidend, coachend en begeleidend zijn waarden die mij sterk omschrijven. De rollen van teamleider en coach trek ik makkelijk naar mezelf toe. Het is voor mij natuurlijk gedrag en het zijn rollen waar ik me prettig voel. Ik heb rollen gehad als (vervangend) teamleider, coach bij een groot aantal projecten en nu als Agile CI/CD coach. Een persoonlijk hoogtepunt was bij Atos een project samen met Time To Change een mindset verandering teweeg brengen bij een groep van 5000 medewerkers en 250 managers.",
+	  trainingen: ["..."]
+  },
+  {
+      name: "Samenvatting",
+	  indexVan: 7,
+      description: "Als ICT developer ben ik veelzijdig. Ik houd ervan mijn kennis uit te breiden en mijn rollen divers te houden. Naast mijn leidinggevende capaciteiten heb ik een skala aan technische vaardigheden. Ik hecht veel waarde aan duidelijke communicatie en openheid. Ik ben in staat mensen te motiveren, tegenstellingen te overbruggen en draagvlak te creeren. Contact met alle betrokken partijen behouden vind ik belangrijk, ik weet belangen goed af te wegen om uiteindelijk synergie en overeenstemming te bereiken.",
+	  trainingen: ["ITIL/BiSL/ASL", "Gamification", "Scrum Master", "DevOps", "IAM", "Lean", "Agile", "Security", "Teamlead", "Coaching", "JavaScript", "AngularJS", "Business Intelligence", "Front-End Development", "Continuous Integration"]
+  }
+];
+
+	var jobs = [
+		{
+			name: "Callcenter medewerker NIB Incasso",
+			shortName: "Callcenter medew",
+			periode: "dec 1997 - mei 2001",
+			description: ["Als student ben ik begonnen bij het Nationaal Incasso Bureau om in de avonduren mijn studie te bekostigen. ", "paragraaf 2"],
+			tools: [],
+			indexVan: 100,
+			recom: [],
+			myclass: "j1",
+			row1: true,
+			subs: [
+				{
+					name: "Callcenter medewerker NIB Incasso",
+					shortName: "Callcenter medew",
+					period: "dec 1997 - mei 2001",
+					indexVan: 100
+				},
+				{
+					name: "Teamleider Callcenter avondploeg",
+					shortName: "Teamleider",
+					period: "jan 1999 - mei 2001",
+					indexVan: 110
+				}
+			]
+		},
+		{
+			name: "ICT Medewerker NIB Incasso",
+			shortName: "ICT medew",
+			periode: "mei 2001 - jun 2008",
+			description: ["Na vier jaar werd ik benaderd door de ICT manager met de vraag of ik niet zou willen overstappen naar de IT afdeling. Mijn IT vaardigheden en interesse in IT waren aanleiding om mij te vragen. Eerst in deeltijd om te zien of het bevalt en uiteindelijk voltijd werkzaam als IT medewerker.","Als ICT afdeling voor de NIB Group waren drie IT medewerkers verantwoordelijk voor het volledig beheer van de IT diensten voor 4 werkmaatschappijen. Alle IT werd intern gedaan.", "In deze tijd heb ik een aantal bijzondere projecten gedaan zoals het opzetten van het intranet, upgraden van de Novell server, implementeren van een nieuw incassopakket"],
+			tools: ["Advantage database", "Clipper", "Novell", "Xampp", "ModXCMS"],
+			indexVan: 200,
+			recom: [],
+			myclass: "j2",
+			row1: true,
+			subs: [
+				{
+					name: "ICT Medewerker NIB Incasso",
+					shortName: "ICT medew",
+					period: "mei 2001 - jun 2008",
+					indexVan: 200
+				},
+				{
+					name: "Vervanger ICT Manager",
+					shortName: "Vervanger manager",
+					period: "jan 2003 - jun 2008",
+					indexVan: 210
+				},
+				{
+					name: "Business Intelligence Specialist",
+					shortName: "BI sepcialist",
+					period: "jan 2004 - jun 2008",
+					indexVan: 220
+				},
+				{
+					name: "Facilitair Manager",
+					shortName: "Facilitair manager",
+					period: "sep 2005 - jun 2008",
+					indexVan: 230
+				}
+			]
+		},
+		{
+			name: "ICT Consultant Atos",
+			shortName: "ICT Consultant",
+			periode: "jun 2008 - heden",
+			description: [],
+			tools: [],
+			indexVan: 300,
+			recom: [
+				{
+					name: "Hans van Dam",
+					position: "Sr Project manager bij ING",
+					about: "Scrummaster DevOps Authentication",
+					recomdescr: ["De afgelopen twee jaren heb ik intensief samengewerkt met Markus. In eerste instantie als analist en DEVOPS engineer met als doel bijhouden van de bestaande User Access applicatie en kort later voor de opzet van de nieuwe applicatie. In die tijd heb ik gemerkt dat Markus een vrolijke kant en een zeer serieuze kant heeft. Vrolijk bij binnenkomst en als hij merkt dat de spanning wat te hoog wordt binnen het team. Serieus als er problemen zijn of als de schouders eronder gezet moeten worden.","Als tweede hebben we gemerkt dat Markus een natuurlijk leiderschap over zicht heeft. Na verloop van een aantal maanden hebben we gevraagd of hij scrummaster wilde worden. Op dat moment laat Marcus ook duidelijk zien dat hij een extra verantwoordelijkheid op zich kan nemen. Duidelijk in de lead, trekt en duwt hij aan zijn teamleden om er voor te zorgen dat de opdrachten die er zijn, ook goed worden afgerond. Als tweede ook tijdelijk als Product owner. Hierbij waren het niet alleen de teamleden, maar ook meerdere teams die betrokken werden. Tevens de afstemmingen met de diverse stakeholders. Niet helemaal van een leien dakje, maar daarvoor was de druk m.b.t. oplevering ook te hoog.","Al met al vind ik Markus een allrounder, die zoals ik hierboven al schrijf, op vele vlakken in te zetten is. Markus is niet alleen een harde werker maar ook een fijn mens en prettig om mee te sparren"]
+				}
+			],
+			myclass: "j3",
+			row1: true,
+			subs: [
+				{
+					name: "ICT Consultant Atos",
+					shortName: "ICT Consultant",
+					period: "jun 2008 - heden",
+					indexVan: 300
+				},
+				{
+					name: "SAP Business Intelligence Consultant",
+					shortName: "SAP BI Consultant",
+					period: "jun 2008 - okt 2013",
+					indexVan: 310
+				},
+				{
+					name: "Bestuurslid Business Objects Competence Team",
+					shortName: "BO Competence team",
+					period: "mrt 2009 - sep 2011",
+					indexVan: 320
+				},
+				{
+					name: "Coachen en begeleiden junior medewerkers",
+					shortName: "Coach Junior medew",
+					period: "okt 2009 - okt 2013",
+					indexVan: 330
+				},
+				{
+					name: "Change- en Release Coordinator ITIM",
+					shortName: "Changemgr IAM",
+					period: "mrt 2011 - okt 2013",
+					indexVan: 340
+				},
+				{
+					name: "Change- en Release Coordinator ITIM",
+					shortName: "Changemgr IAM",
+					period: "mrt 2011 - okt 2013",
+					indexVan: 350
+				}
+			]
+		},
+		{
+			name: "Teamleider Callcenter avondploeg",
+			shortName: "Teamleider",
+			periode: "jan 1999 - mei 2001",
+			description: ["Markus was destijds werkzaam als medewerker voor het Callcenter van het Nationaal Incasso Bureau en werkte van 13:00 tot :21:00. De teamleider stapte over van Collections naar Legal en we werden geconfronteerd met een team zonder directe leiding.","Markus werd gevraagd om deze taak te gaan vervullen. De verantwoordelijkheden van Markus waren de kwaliteit en productiviteit van de groep te waarborgen. Verder diende Markus als vraagbaak en hielp hij bij lastige casus.", "Onder leiding van Markus heeft de avondploeg goede resultaten geboekt en hebben wij tijd vrij weten te maken om ook mee te helpen aan de achterstanden van medewerkers die overdag werken.", "Dit was de eerste kennismaking met leidinggeven voor Markus. Hij heeft het kunnen helpen en begeleiden van de medewerkers als zeer bevredigend ervaren."],
+			tools: ["Teamlead"],
+			indexVan: 110,
+			recom: [],
+			row1: false,
+			myclass: "j1s1",
+			subs: [
+				{
+					name: "Callcenter medewerker NIB Incasso",
+					shortName: "Callcenter medew",
+					period: "dec 1997 - mei 2001",
+					indexVan: 100
+				},
+				{
+					name: "Teamleider Callcenter avondploeg",
+					shortName: "Teamleider",
+					period: "jan 1999 - mei 2001",
+					indexVan: 110
+				}
+			]
+		}
+	]
+})();

@@ -1,0 +1,26 @@
+<div class="row2" ng-controller="ProfielController as profiel">
+			<div class="profiel">		
+				<h3>Profile</h3>
+				<div class="line"></div>
+				<hr class="dark" />
+				<ul>
+					<li ng-repeat="rol in profiel.profielen" ng-show="rol.myclass" class="{{rol.myclass}}">
+						<a href ng-click="profiel.selectedProfInfo(rol.indexVan)">{{rol.name}}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="prof-devider"></div>
+			<div class="prof-info" ng-repeat="rol in profiel.profielen" ng-init="profInfo = 7" ng-show="profiel.isSelectedProfInfo(rol.indexVan)">
+				<h3>{{rol.name}}</h3>
+				<div class="line"></div>
+				<hr class="dark" />
+				<span ng-bind-html='rol.description'></span>
+				<!-- <p ng-show="rol.trainingen"><em>Recente opleidingen:</em></p> -->
+				<ul class="lijstje" ng-show="rol.trainingen">
+					<li class="training-prof" ng-repeat="training in rol.trainingen">
+						{{training}}
+					</li>
+				</ul>
+				<div class="samenv" ng-show="rol.myclass"><a href ng-click="profiel.selectedProfInfo(7)">Summary</a></div>
+			</div>
+		</div>

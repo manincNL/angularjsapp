@@ -1,0 +1,42 @@
+<div class="row3" ng-controller="OpdrachtController as opdracht">
+			<div class="opdrachten">
+				<h3>Assignments</h3>
+				<div class="line"></div>
+				<hr class="dark" />
+				<img src="images/timeline.png" alt="timeline" class="timeline" />
+				<ul class="werkg"><li class="nib">&nbsp;&nbsp;&nbsp;&nbsp;NIB&nbsp;&nbsp;&nbsp;&nbsp; <span>Group</span></li><li class="atos">Atos</li><li class="devon">&nbsp;</li></ul>
+				
+				<ul class="jobs">
+					<li ng-repeat="assignment in opdracht.opdrachten" class="{{assignment.myclass}}" ng-show="assignment.row1">
+						<a title="{{assignment.name}}" href ng-click="opdracht.selectedJobInfo(assignment.indexVan); opdracht.selectedSubSet(assignment.subSet)">{{assignment.shortName}}</a>
+					</li>
+				</ul>
+				<hr class="dark jobshr" />
+				<div class="jobinfo" ng-repeat="assignment in opdracht.opdrachten" ng-init="jobInfo = 300" ng-show="opdracht.isSelectedJobInfo(assignment.indexVan)">
+					<div style="display: block;">
+						<h4>{{assignment.name}}</h4>
+						<div class="line"></div>
+						<hr class="dark" />
+
+						<article>
+							<aside class="{{assignment.myclass}}">
+								<ul>
+									<li class="i{{sub.indexVan}}" ng-repeat="sub in opdracht.opdrachten" ng-init="subSet = 5" ng-show="opdracht.isSelectedSubSet(sub.subSet)"><a class="{{sub.row1}}" href ng-click="opdracht.selectedJobInfo(sub.indexVan)">{{sub.name}}</a><br /><span>{{sub.period}}</span></li>
+								</ul>
+							</aside>
+							<p ng-repeat="pg in assignment.description"><span ng-bind-html='pg'></span></p>
+								
+							<div style="display:block; margin-top: 10px;">
+								<ul class="lijstje2">
+									<li class="training-prof" ng-repeat="tool in assignment.tools">
+										{{tool}}
+									</li>
+								</ul>
+							</div>
+						</article>
+
+						
+					</div>
+				</div>
+			</div>
+		</div>

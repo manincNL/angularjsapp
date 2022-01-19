@@ -1,0 +1,14 @@
+<div class="row4" ng-controller="AanbevelingController as aanbeveling">
+			<h3>Recommendations</h3>
+			<div class="line"></div>
+			<hr class="dark" />
+			<p><b>What do they say about Markus:</b></p>
+			<ul class="ulrecom">
+				<li ng-repeat="rc in aanbeveling.aanbevelingen"><a href ng-click="aanbeveling.selectedRCInfo(rc.indexVan)">{{rc.name}}</a></li>
+			</ul>
+			<p class="rcinfo" ng-repeat="rc2 in aanbeveling.aanbevelingen" ng-init="rcInfo = 1000" ng-show="aanbeveling.isSelectedRCInfo(rc2.indexVan)">{{rc2.name}} - {{rc2.position}} <br />
+			assignment: <u>{{rc2.about}}</u></p>
+			<blockquote class="rcinfo" ng-repeat="rc2 in aanbeveling.aanbevelingen" ng-init="rcInfo = 0" ng-show="aanbeveling.isSelectedRCInfo(rc2.indexVan)">
+				<p ng-repeat="pg2 in rc2.recomdescr"><span ng-bind-html='pg2'</span></p>
+			</blockquote>
+		</div>
